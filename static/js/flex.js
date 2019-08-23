@@ -67,11 +67,11 @@
 
   function refreshRem(){
     var width = docEl.getBoundingClientRect().width;
-    if (width / dpr > 540) {
-      width = 540 * dpr;
+    if (width / dpr > 375) {
+      width = 375 * dpr;
     }
     var rem = width / 10;
-    docEl.style.fontSize = rem + 'px';
+    docEl.style.fontSize = rem + 'px';   //rem的基准值。
     flexible.rem = win.rem = rem;
   }
 

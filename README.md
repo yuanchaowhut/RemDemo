@@ -63,6 +63,14 @@
 
     <meta name="viewport" content="width=device-width,initial-scale=1.0, maximum-scale=1, user-scalable=no">
 
+## postcss-px2rem + flex.js 综合使用
++ postcss-px2rem插件的作用是将css样式中的px转换为rem (px/rem)，它的rem基准值是基于下面的配置。假如某个div的width=100px，那么会换算为100/37.5=2.667rem。
+![postcss-px2rem基准值](002.png)
+
++ flex.js的作用是当屏幕尺寸改变或者刷新界面时，重新计算html根元素的font-size值，这个值是页面显示的rem基准值。假如某个div的width为2.667rem,那么会显示为2.667*37.5=100px大小。
+![postcss-px2rem基准值](003.png)
+
++ 可以这样认为，postcss-px2rem负责将程序员设置的px绝对值换算成相对值rem，flex.js负责将不同尺寸下的相对值rem解析出来。整个过程是：px / remUnit1 * remUnit2。很显然，当remUnit1和remUnit2不同时，实际显示的px值和程序员设置的px值大小不一致，所以为了方便我们一般取一样的值。
 
 ## 扩展阅读
 1. [移动Web适配利器-rem](http://www.alloyteam.com/2016/03/mobile-web-adaptation-tool-rem/)
